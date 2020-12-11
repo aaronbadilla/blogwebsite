@@ -19,16 +19,16 @@ const posts = []
 
 // MONGODB ATLAS INTEGRATION connect to database
 
-mongoose.connect("mongodb+srv://" + process.env.ADMIN_USER + ":" + process.env.ADMIN_PASS + "@cluster0.iy1oa.mongodb.net/blogWebsite", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+// mongoose.connect("mongodb+srv://" + process.env.ADMIN_USER + ":" + process.env.ADMIN_PASS + "@cluster0.iy1oa.mongodb.net/blogWebsite", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
 
 // CONFIGURE MODULES
 
 // MONGODB ATLAS INEGRATION configure modules
 //
-mongoose.set('useFindAndModify', false);
+// mongoose.set('useFindAndModify', false);
 
 const app = express();
 
@@ -42,12 +42,12 @@ app.use(express.static("public"));
 
 // MONGODV ATLAS INTEGRATION create collection
 
-const blogPostSchema = new mongoose.Schema({
-  title: String,
-  content: String
-});
-
-const Post = mongoose.model("Post", blogPostSchema);
+// const blogPostSchema = new mongoose.Schema({
+//   title: String,
+//   content: String
+// });
+//
+// const Post = mongoose.model("Post", blogPostSchema);
 
 // HOME ROUTE
 
@@ -158,9 +158,11 @@ app.post("/compose", function(req, res) {
 });
 
 
-
 // SERVER
-
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port, function() {
+  console.log("Server started");
 });
