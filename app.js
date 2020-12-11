@@ -8,7 +8,7 @@ const ejs = require("ejs");
 const _ = require("lodash")
 
 // MONGODB ATLAS INTEGRATION require modules
-const mongoose = require("mongoose")
+// const mongoose = require("mongoose")
 
 // DEMO CONTENT
 
