@@ -67,3 +67,7 @@ input {
   position: absolute;
   bottom: 80px;
 }
+
+.display-post {
+  white-space: pre-line;
+}
